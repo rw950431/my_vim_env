@@ -7,6 +7,29 @@
 # History:
 #   Date        Author  Remarks
 #-----------------------------------------------
+
+#string interpolation
+# a="#{array[1]}"
+# quotes
+# %q|| = ''
+# %Q|| = ""
+# %w( fee fi fo) = ["fee","fi","fo"]
+# here-doc
+# a=<<-END_LIST  (- allows whitespace before terminator)
+# 1. do
+# 2. this
+# 3. now
+# END_LIST
+#  <<DOUBLE_QUOTE, <<"DOUBLE_QUOTE", <<'SINGLE_QUOTE' rules apply
+#string substite
+#
+# a="Hi There"
+# a.gsub("There","Where") => "Hi Where"
+# a.gsub!("There","Where") => "Hi Where", modifies a
+#
+#regexp
+# str=~/\s+/
+#
 #
 #Iterate over an array
 # [1,2,3].each { |i| i=i+1  } => [1,2,3]
@@ -42,14 +65,6 @@
 #    when 1..10: "Way too small."
 #    else "Just wrong"
 # end   
-#string substite
-# a="Hi There"
-# a.gsub("There","Where") => "Hi Where"
-# a.gsub!("There","Where") => "Hi Where", modifies a
-#
-#regexp
-# str=~/\s+/
-#
 # Exception
 # begin
 #    f = open(fn)
@@ -80,3 +95,26 @@
 #      return @val
 #   end
 # end
+#
+# # example Class with easy initilise
+# class Observation 
+# #http://stackoverflow.com/questions/982848/dryer-object-initialization-in-ruby
+#   FIELDS = %w( aifstime_utc air_temp bom_url apparent_t last_Etag last_polled lat lon name pachube_feed press rain_trace rel_hum wind_dir wind_spd_kmh wmo)
+#   SYSTEM = 0
+#   DATA = 1
+#   attr_accessor *FIELDS
+#
+#   def initialize( args= { :type => SYSTEM } )
+#     args.each_pair do | key, value |
+#       self.send("#{key}=", value) if self.respond_to?("#{key}=")
+#     end
+#   end
+#
+#   def inspect
+#     FIELDS.inject({}) do | hash, field |
+#       hash.merge( field.to_sym => self.send(field) )
+#     end.inspect
+#   end
+# end
+#
+#
