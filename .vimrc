@@ -8,7 +8,12 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 " This one makes Control+Arrow shuffle between tabs
-let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+" This one makes Control+hjkl shuffle between tabs
+"let g:miniBufExplMapWindowNavVim = 1
+" Control+Tab steps between buffers
+"let g:miniBufExplMapCTabSwitchBufs = 1
+
 if has("autocmd")
 "allows one to do :Perldoc on a perl module and see the docs
 " au FileType perl source ~/.vim/ftplugin/perl_doc.vim
